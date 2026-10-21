@@ -3,8 +3,9 @@ a:hover{
     transition: background-color 0.5s;
 }
 .inicio {
-    margin-top: 50px;
+    margin-top: 150px;
     display: flex;
+    gap: 100px;
 }
 .logo {
     width: 50%;
@@ -46,4 +47,14 @@ a:hover{
 #boton {
     margin-top: 60px;
     margin-left: 80px;
+}
+.navbar-seguimiento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.contacto{
+    margin-top: 1000px;
 }
