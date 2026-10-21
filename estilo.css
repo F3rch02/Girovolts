@@ -5,7 +5,7 @@ a:hover{
 .inicio {
     margin-top: 150px;
     display: flex;
-    gap: 100px;
+    gap: 10px;
 }
 .logo {
     width: 50%;
@@ -56,5 +56,17 @@ a:hover{
     z-index: 9999;
 }
 .contacto{
-    margin-top: 1000px;
+    margin-top: 200px;
+}
+#contactos{
+    margin-top: 100px;
+    margin-left: 80px;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    margin:0px;
+    padding: 20px;
+}
+.flex{
+    display: flex;
+    gap: 10px;
 }
