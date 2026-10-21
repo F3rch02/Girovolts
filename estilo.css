@@ -2,3 +2,48 @@ a:hover{
     background-color: #b7ebd2;
     transition: background-color 0.5s;
 }
+.inicio {
+    margin-top: 50px;
+    display: flex;
+}
+.logo {
+    width: 50%;
+}
+.informacion {
+    width: 50%;
+    margin-left: 80px;
+}
+.girovolt {
+    color: #00b894;
+    text-shadow: 4px 4px 6px rgba(12, 155, 55, 0.5);
+    font-size: 98px;
+}
+#presentamos {
+    color: #00b49073;
+    font-size: 48px;
+    font-family: 'Arial', sans-serif;
+}
+#slogan {
+    font-size: 34px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.btn-solid {
+    background-color: #00b894;
+    color: #fff;
+    border: solid 2px #00b894;
+    padding: 10px 20px;
+    font-size: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-solid:hover {
+    width: 250px;
+    height: 80px;
+    font-size: 28px;
+}
+#boton {
+    margin-top: 60px;
+    margin-left: 80px;
+}
