@@ -1,5 +1,12 @@
+body{
+   margin: 0;
+   min-height: 100vh;
+   background-color: linear-gradient(to bottom, #d3ebb2 0%,#ffffff 50%,#d3ebb2 100%);
+   background-attachment: fixed;
+}
+
 .hijo{
-    background-color: #DEBC3F;
+    background-color: #85de7d;
     margin: 30px;
     margin-top: 50px;
     border-radius: 10px;
@@ -20,7 +27,7 @@
     margin: auto;
 }
 .hijo2{
-    background-color: #DEBC3F;
+    background-color:  #85de7d;
     margin: 30px;
     margin-top: 50px;
     border-radius: 10px;
