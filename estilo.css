@@ -70,3 +70,19 @@ a:hover{
     display: flex;
     gap: 10px;
 }
+
+@media(max-width: 950px){
+    .inicio{
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo{
+        margin-top: 10px;
+        margin-left: 0px;
+        width: 80%;
+        height: 40%;
+    }
+    .contacto{
+        margin-top: 50px;
+    }
+}
