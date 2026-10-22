@@ -1,32 +1,38 @@
-a:hover{
+a:hover {
     background-color: #b7ebd2;
     transition: background-color 0.5s;
 }
+
 .inicio {
     margin-top: 150px;
     display: flex;
     gap: 10px;
 }
+
 .logo {
     width: 50%;
 }
+
 .informacion {
     width: 50%;
     margin-left: 80px;
 }
+
 .girovolt {
     color: #00b894;
     text-shadow: 4px 4px 6px rgba(12, 155, 55, 0.5);
     font-size: 98px;
 }
+
 #presentamos {
     color: #00b49073;
     font-size: 48px;
     font-family: 'Arial', sans-serif;
 }
+
 #slogan {
     font-size: 34px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .btn-solid {
@@ -44,10 +50,12 @@ a:hover{
     height: 80px;
     font-size: 28px;
 }
+
 #boton {
     margin-top: 60px;
     margin-left: 80px;
 }
+
 .navbar-seguimiento {
     position: fixed;
     top: 0;
@@ -55,34 +63,53 @@ a:hover{
     width: 100%;
     z-index: 9999;
 }
-.contacto{
+
+.contacto {
     margin-top: 200px;
 }
-#contactos{
+
+#contactos {
     margin-top: 100px;
     margin-left: 80px;
     background-color: #0f0f0f;
     color: #ffffff;
-    margin:0px;
+    margin: 0px;
     padding: 20px;
 }
-.flex{
+
+.flex {
     display: flex;
     gap: 10px;
 }
 
-@media(max-width: 950px){
-    .inicio{
+#boton-nosotros {
+    text-decoration: none;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#boton-nosotros:hover {
+    color: #fff;
+    background-color: #00b894;
+}
+
+@media(max-width: 950px) {
+    .inicio {
         flex-direction: column;
         align-items: center;
     }
-    .logo{
+
+    .logo {
         margin-top: 10px;
         margin-left: 0px;
         width: 80%;
         height: 40%;
     }
-    .contacto{
+
+    .contacto {
         margin-top: 50px;
     }
 }
