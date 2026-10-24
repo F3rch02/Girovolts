@@ -1,5 +1,6 @@
 a:hover {
-    background-color: #b7ebd2; /* Verde claro suave de la paleta de Nosotros */
+    background-color: #b7ebd2;
+    /* Verde claro suave de la paleta de Nosotros */
     transition: background-color 0.5s;
 }
 
@@ -19,7 +20,8 @@ a:hover {
 }
 
 .girovolt {
-    color: #00b894; /* Verde principal de tu identidad de marca */
+    color: #00b894;
+    /* Verde principal de tu identidad de marca */
     text-shadow: 4px 4px 6px rgba(0, 184, 148, 0.3);
     font-size: 98px;
 }
@@ -37,7 +39,8 @@ a:hover {
 }
 
 .btn-solid {
-    background-color: #00b894; /* Verde principal */
+    background-color: #00b894;
+    /* Verde principal */
     color: #fff;
     border: solid 2px #00b894;
     padding: 10px 20px;
@@ -50,7 +53,8 @@ a:hover {
     width: 250px;
     height: 80px;
     font-size: 28px;
-    background-color: #008f72; /* Tono un poco más profundo para el hover del botón */
+    background-color: #008f72;
+    /* Tono un poco más profundo para el hover del botón */
 }
 
 #boton {
@@ -73,7 +77,8 @@ a:hover {
 #contactos {
     margin-top: 100px;
     margin-left: 80px;
-    background-color: #0f0f0f; /* Tono oscuro original */
+    background-color: #0f0f0f;
+    /* Tono oscuro original */
     color: #ffffff;
     margin: 0px;
     padding: 20px;
@@ -96,6 +101,31 @@ a:hover {
 #boton-nosotros:hover {
     color: #fff;
     background-color: #00b894;
+}
+
+.navbar-custom-light {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 12px 30px;
+}
+
+.navbar-custom-light .nav-link {
+    color: #495057 !important;
+    font-size: 18px;
+    padding: 8px 22px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom-light .nav-link.active {
+    background-color: #b7ebd2 !important;
+    color: #0f0f0f !important;
+    font-weight: 600;
+}
+
+.navbar-custom-light .nav-link:hover:not(.active) {
+    background-color: #f1f3f5;
+    color: #00b894 !important;
 }
 
 @media(max-width: 950px) {
