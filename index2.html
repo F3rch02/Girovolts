@@ -1,152 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio de sesión - GiroVolt</title>
     <link rel="stylesheet" href="estilo2.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <!-- Navbar Claro Integrado -->
     <div class="navbar-seguimiento">
-        <nav class="navbar sm:navbar-expand bg-1 fg-2">
-            <div class="container-fluid">
-                <img src="imagenes/Solo logotipo.png" alt="Logo" width="" height="90"
-                    class="d-inline-block align-text-top">
-                <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
-                </button>
-                <dialog class="drawer drawer-end" tabindex="-1" id="navbarNavAltMarkup"
-                    aria-labelledby="navbarNavAltMarkupLabel">
-                    <div class="drawer-header">
-                        <h5 class="drawer-title" id="navbarNavAltMarkupLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
-                    </div>
-                    <div class="drawer-body">
-                        <div class="nav nav-pills navbar-nav">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                            <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                            <a class="nav-link" href="productos.html">Productos</a>
-                            <a class="nav-link active" aria-current="page" href="#">Inicio de sesión</a>
-                        </div>
-                    </div>
-                </dialog>
+        <nav class="navbar navbar-expand-lg navbar-custom-light">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <!-- Logo a la izquierda -->
+                <a class="navbar-brand m-0" href="index.html">
+                    <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" height="60">
+                </a>
+
+                <!-- Enlaces a la derecha con la opción activa (Inicio de sesión) en verde pastel -->
+                <div class="navbar-nav d-flex flex-row gap-3">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                    <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="productos.html">Productos</a>
+                    <a class="nav-link active" aria-current="page" href="#">Inicio de sesión</a>
+                </div>
             </div>
         </nav>
     </div>
-    <div class="logo">
 
-
-
+    <div class="logo" style="margin-top: 100px;">
         <img src="imagenes/Logo con solo nombre.png" alt="Logo" width="600" height="500" id="logo">
-
     </div>
-
 
     <div class="padre">
-
         <div class="hijo">
-
             <center>
-
                 <h1>Iniciar Sesion</h1>
-
             </center>
 
-
             <center>
-
                 <form onsubmit="iniciarSesion(event)">
-
                     <label for="username">Usuario:</label>
-
                     <input type="text" id="username" name="username" required>
-
                     <br><br>
-
 
                     <label for="password">Contraseña:</label>
-
                     <input type="password" id="password" name="password" required>
-
                     <br><br>
 
-
                     <input type="submit" value="Iniciar sesión">
-
                 </form>
-
             </center>
-
         </div>
-
-
-
 
         <div class="hijo2">
-
             <center>
-
                 <h1>Registro</h1>
 
-
                 <label>Usuario:</label>
-
                 <input type="text" id="usuarioRegistro">
-
                 <br><br>
-
 
                 <label>Correo:</label>
-
                 <input type="email" id="correoRegistro">
-
                 <br><br>
-
 
                 <label>Contraseña:</label>
-
                 <input type="password" id="contrasenaRegistro">
-
                 <br><br>
-
 
                 <label>Confirmar contraseña:</label>
-
                 <input type="password" id="confirmarRegistro">
-
                 <br><br>
 
-
                 <button onclick="registrar()">
-
                     Registrarse
-
                 </button>
-
-
             </center>
-
         </div>
-
     </div>
 
-
-
     <script>
-
         function registrar() {
-
             let usuario = document.getElementById("usuarioRegistro").value;
-
             let correo = document.getElementById("correoRegistro").value;
-
             let contrasena = document.getElementById("contrasenaRegistro").value;
-
             let confirmar = document.getElementById("confirmarRegistro").value;
 
             if (
@@ -155,109 +97,66 @@
                 contrasena == "" ||
                 confirmar == ""
             ) {
-
                 alert("Debe llenar todos los campos");
-
                 return;
-
             }
 
             if (contrasena != confirmar) {
-
                 alert("Las contraseñas no coinciden");
-
                 return;
-
             }
 
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
             let usuarioExiste = usuarios.find(function (user) {
-
                 return user.usuario == usuario;
-
             });
 
-
             if (usuarioExiste) {
-
                 alert("Ese usuario ya existe");
-
                 return;
-
             }
 
             let nuevoUsuario = {
-
                 usuario: usuario,
-
                 correo: correo,
-
                 contrasena: contrasena
-
             };
-
 
             usuarios.push(nuevoUsuario);
 
-
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
 
             alert("Usuario registrado correctamente");
 
             document.getElementById("usuarioRegistro").value = "";
-
             document.getElementById("correoRegistro").value = "";
-
             document.getElementById("contrasenaRegistro").value = "";
-
             document.getElementById("confirmarRegistro").value = "";
-
         }
 
-
-
         function iniciarSesion(event) {
-
             event.preventDefault();
 
-
             let usuario = document.getElementById("username").value;
-
             let contrasena = document.getElementById("password").value;
-
 
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
             let usuarioEncontrado = usuarios.find(function (user) {
-
                 return user.usuario == usuario &&
                     user.contrasena == contrasena;
-
             });
 
-
             if (usuarioEncontrado) {
-
                 alert("Inicio de sesión correcto");
-
                 window.location.href = "index.html";
-
             } else {
-
                 alert("Usuario o contraseña incorrectos");
-
             }
-
-
         }
-
     </script>
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
