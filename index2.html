@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="estilo2.css">
+    <link rel="stylesheet" href="estilo2.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="navbar-seguimiento">
         <nav class="navbar sm:navbar-expand bg-1 fg-2">
             <div class="container-fluid">
-                <img src="imagenes/Gemini_Generated_Image_bt5ra6bt5ra6bt5r.png" alt="Logo" width="" height="90"
+                <img src="imagenes/Solo logotipo.png" alt="Logo" width="" height="90"
                     class="d-inline-block align-text-top">
                 <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -36,26 +38,22 @@
             </div>
         </nav>
     </div>
- <div class="logo">
+    <div class="logo">
 
 
 
-        <img src="imagenes/Gemini_Generated_Image_bt5ra6bt5ra6bt5r.png"
-             alt="Logo"
-             width="600"
-             height="500"
-             id="logo">
+        <img src="imagenes/Logo con solo nombre.png" alt="Logo" width="600" height="500" id="logo">
 
     </div>
 
 
-     <div class="padre">
+    <div class="padre">
 
         <div class="hijo">
 
             <center>
 
-                <h1>Inicio</h1>
+                <h1>Iniciar Sesion</h1>
 
             </center>
 
@@ -66,32 +64,19 @@
 
                     <label for="username">Usuario:</label>
 
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        required
-                    >
+                    <input type="text" id="username" name="username" required>
 
                     <br><br>
 
 
                     <label for="password">Contraseña:</label>
 
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        required
-                    >
+                    <input type="password" id="password" name="password" required>
 
                     <br><br>
 
 
-                    <input
-                        type="submit"
-                        value="Iniciar sesión"
-                    >
+                    <input type="submit" value="Iniciar sesión">
 
                 </form>
 
@@ -111,40 +96,28 @@
 
                 <label>Usuario:</label>
 
-                <input
-                    type="text"
-                    id="usuarioRegistro"
-                >
+                <input type="text" id="usuarioRegistro">
 
                 <br><br>
 
 
                 <label>Correo:</label>
 
-                <input
-                    type="email"
-                    id="correoRegistro"
-                >
+                <input type="email" id="correoRegistro">
 
                 <br><br>
 
 
                 <label>Contraseña:</label>
 
-                <input
-                    type="password"
-                    id="contrasenaRegistro"
-                >
+                <input type="password" id="contrasenaRegistro">
 
                 <br><br>
 
 
                 <label>Confirmar contraseña:</label>
 
-                <input
-                    type="password"
-                    id="confirmarRegistro"
-                >
+                <input type="password" id="confirmarRegistro">
 
                 <br><br>
 
@@ -199,7 +172,7 @@
 
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-            let usuarioExiste = usuarios.find(function(user) {
+            let usuarioExiste = usuarios.find(function (user) {
 
                 return user.usuario == usuario;
 
@@ -257,10 +230,10 @@
 
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-            let usuarioEncontrado = usuarios.find(function(user) {
+            let usuarioEncontrado = usuarios.find(function (user) {
 
                 return user.usuario == usuario &&
-                       user.contrasena == contrasena;
+                    user.contrasena == contrasena;
 
             });
 
@@ -269,9 +242,9 @@
 
                 alert("Inicio de sesión correcto");
 
-                window.location.href = "index4.html"; 
+                window.location.href = "index.html";
 
-                } else {
+            } else {
 
                 alert("Usuario o contraseña incorrectos");
 
@@ -281,9 +254,10 @@
         }
 
     </script>
-     <script type="module"
-            src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
+
 </html>
