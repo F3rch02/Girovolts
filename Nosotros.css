@@ -85,3 +85,26 @@ a:hover {
 .lead {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.navbar-custom-light .navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0.7rem;
+}
+
+.navbar-custom-light .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.35);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-custom-light {
+        padding: 8px 20px;
+    }
+
+    .navbar-custom-light .navbar-collapse {
+        padding-top: 8px;
+    }
+
+    .navbar-custom-light .nav-link {
+        padding: 12px 18px !important;
+    }
+}
