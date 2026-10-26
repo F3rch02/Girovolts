@@ -13,7 +13,6 @@ function ocultarImagenCompleta() {
     document.body.style.overflow = "";
 }
 
-// Cerrar tocando el fondo oscuro o con la tecla Esc
 contenedorImagen.addEventListener("click", function (e) {
     if (e.target === contenedorImagen) ocultarImagenCompleta();
 });
