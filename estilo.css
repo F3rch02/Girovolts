@@ -141,7 +141,6 @@ a:hover {
     }
 }
 
-/* ===== Añadido: menú hamburguesa (tablet vertical y celular) ===== */
 .navbar-custom-light .navbar-toggler {
     border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0.5rem 0.7rem;
@@ -165,7 +164,6 @@ a:hover {
     }
 }
 
-/* ===== Añadido: ajustes responsive del inicio ===== */
 .logo img {
     max-width: 100%;
     height: auto;
@@ -175,7 +173,6 @@ a:hover {
     flex-wrap: wrap;
 }
 
-/* En pantallas táctiles el botón no se queda agrandado al tocarlo */
 @media (hover: none) {
     .btn-solid:hover {
         width: auto;
@@ -184,7 +181,6 @@ a:hover {
     }
 }
 
-/* Tablet horizontal y laptops pequeñas */
 @media (max-width: 1199.98px) {
     .girovolt {
         font-size: clamp(56px, 9vw, 98px);
@@ -207,7 +203,6 @@ a:hover {
     }
 }
 
-/* Tablet vertical y celular: texto y logo apilados y centrados */
 @media (max-width: 991.98px) {
     .inicio {
         flex-direction: column;
