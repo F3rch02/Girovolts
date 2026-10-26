@@ -27,26 +27,22 @@ a:hover {
     background-color: #f1f3f5;
     color: #00b894 !important;
 }
-
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
-h1 {
+h1{
     text-align: center;
     position: relative;
     width: 80%;
     margin: 50px auto;
 }
-
-body {
+body{
     background-color: #ecf4fb;
 }
-
-h1::before {
+h1::before{
     content: "";
     display: block;
     width: 100%;
@@ -56,34 +52,25 @@ h1::before {
     top: 50%;
     z-index: -1;
 }
-
-h1 span {
-    background-color: #ecf4fb;
+h1 span{
+    background-color:#ecf4fb;
     padding: 0 15px;
 }
-
 /* ---------- Galería de productos (mejorada) ---------- */
-.img-gallery {
+.img-gallery{
     width: min(92%, 1280px);
     margin: 50px auto 50px;
     display: grid;
     grid-template-columns: 1fr;
     gap: clamp(16px, 2.4vw, 32px);
 }
-
-@media (min-width: 520px) {
-    .img-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (min-width: 520px){
+    .img-gallery{ grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (min-width: 1100px) {
-    .img-gallery {
-        grid-template-columns: repeat(4, 1fr);
-    }
+@media (min-width: 1100px){
+    .img-gallery{ grid-template-columns: repeat(4, 1fr); }
 }
-
-.producto-card {
+.producto-card{
     display: block;
     width: 100%;
     padding: 10px;
@@ -96,37 +83,32 @@ h1 span {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     -webkit-tap-highlight-color: transparent;
 }
-
-.producto-card img {
+.producto-card img{
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    object-fit: contain;
-    /* son carteles con texto: no se recortan */
+    object-fit: contain;      /* son carteles con texto: no se recortan */
     border-radius: 12px;
     background: #fff;
 }
-
-@media (hover: hover) {
-    .producto-card:hover {
+@media (hover: hover){
+    .producto-card:hover{
         transform: translateY(-6px);
         box-shadow: 0 14px 30px rgba(0, 184, 148, 0.22);
         border-color: #00b894;
     }
 }
-
-.producto-card:active {
+.producto-card:active{
     transform: scale(0.98);
 }
-
-.producto-card:focus-visible {
+.producto-card:focus-visible{
     outline: 3px solid #00b894;
     outline-offset: 3px;
 }
 
 /* ---------- Imagen ampliada ---------- */
-.ful-img {
+.ful-img{
     width: 100%;
     height: 100vh;
     height: 100dvh;
@@ -138,11 +120,9 @@ h1 span {
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
-    /* por encima de la barra de navegación */
+    z-index: 10000;           /* por encima de la barra de navegación */
 }
-
-.ful-img img {
+.ful-img img{
     width: auto;
     height: auto;
     max-width: min(94vw, 92vh);
@@ -153,8 +133,7 @@ h1 span {
     border-radius: 14px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
-
-.ful-cerrar {
+.ful-cerrar{
     position: absolute;
     top: 14px;
     right: 14px;
@@ -168,27 +147,28 @@ h1 span {
     line-height: 1;
     cursor: pointer;
 }
-
 .ful-cerrar:hover,
-.ful-cerrar:focus-visible {
+.ful-cerrar:focus-visible{
     background: #00b894;
 }
-
-@media screen and (max-width:400px) {
-    h1 {
+@media screen and (max-width:400px){
+    h1{
         text-decoration: underline;
     }
-
-    h1::before {
+    h1::before{
         display: none;
     }
-
-    h1 span {
+    h1 span{
         padding: 0;
     }
 }
 
+/*
+color menta :B7EBB2
+color blanco: FFFF
+*/
 
+/* ===== Añadido: menú hamburguesa (tablet vertical y celular) ===== */
 .navbar-custom-light .navbar-toggler {
     border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0.5rem 0.7rem;

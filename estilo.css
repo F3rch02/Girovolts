@@ -207,6 +207,7 @@ a:hover {
     }
 }
 
+/* Tablet vertical y celular: texto y logo apilados y centrados */
 @media (max-width: 991.98px) {
     .inicio {
         flex-direction: column;
