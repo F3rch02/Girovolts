@@ -75,6 +75,9 @@ a:hover {
     color: #ffffff;
     margin: 0px;
     padding: 20px;
+    width: 100%;
+    min-height: 31vh;
+    box-sizing: border-box;
 }
 
 .flex {
@@ -97,7 +100,14 @@ a:hover {
 }
 
 @media(max-width: 950px) {
+    body {
+        background-color: #0f0f0f;
+    }
+
     .inicio {
+        margin-top: 0;
+        padding-top: 150px;
+        background-color: #ffffff;
         flex-direction: column;
         align-items: center;
     }
