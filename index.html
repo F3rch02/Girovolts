@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Girovolt</title>
+    <title>GiroVolt</title>
     <link rel="stylesheet" href="estilo.css">
-    </link>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
+
     <div class="navbar-seguimiento">
-        <nav class="navbar sm:navbar-expand bg-1 fg-2">
-            <div class="container-fluid">
-                <img src="imagenes/Captura de pantalla 2026-10-21 111720.png" alt="Logo" width="80" height="80"
-                    class="d-inline-block align-text-top">
-                <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        <nav class="navbar navbar-expand-lg navbar-custom-light">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <a class="navbar-brand m-0" href="index.html">
+                    <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" height="60">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <dialog class="drawer drawer-end" tabindex="-1" id="navbarNavAltMarkup"
-                    aria-labelledby="navbarNavAltMarkupLabel">
-                    <div class="drawer-header">
-                        <h5 class="drawer-title" id="navbarNavAltMarkupLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <div class="navbar-nav gap-lg-3">                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="productos.html">Productos</a>
+                        <a class="nav-link" href="index2.html">Inicio de sesión</a>
+                
                     </div>
-                    <div class="drawer-body">
-                        <div class="nav nav-pills navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                            <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                            <a class="nav-link" href="productos.html">Productos</a>
-                            <a class="nav-link" href="index2.html">Inicio de sesión</a>
-                        </div>
-                    </div>
-                </dialog>
+                </div>
             </div>
         </nav>
     </div>
-    <div class="inicio">
+
+    <div class="inicio" style="margin-top: 130px;">
         <div class="informacion">
             <h1 id="presentamos">PRESENTAMOS</h1>
             <h1 class="girovolt"><b>GiroVolt</b></h1>
@@ -51,14 +49,13 @@
             </div>
         </div>
         <div class="logo">
-            <img src="imagenes/Gemini_Generated_Image_bt5ra6bt5ra6bt5r.png" alt="Logo" width="700" height="400">
+            <img src="imagenes/Logo con solo nombre.png" alt="Logo" width="700" height="400">
         </div>
     </div>
+
     <div class="contacto">
         <div class="cont">
-            <div id="log">
-
-            </div>
+            <div id="log"></div>
             <div id="contactos">
                 <h1>Contactos</h1>
                 <br>
@@ -68,7 +65,7 @@
                             alt="Instagram" width="30" height="30">
                     </div>
                     <div>
-                        <p>Instagram: @girovolt</p>
+                        <p>Instagram: <a href="https://www.instagram.com/girovolt_gt/" target="_blank" style="color: #00b894; font-weight: bold;">@girovolt_gt</a></p>
                     </div>
                 </div>
                 <div class="flex">
@@ -77,15 +74,14 @@
                             alt="TikTok" width="30" height="30">
                     </div>
                     <div>
-                        <p>TikTok: @girovolt</p>
+                        <p>TikTok: <a href="https://www.tiktok.com/@girovolt_gt?is_from_webapp=1&sender_device=pc" target="_blank" style="color: #00b894; font-weight: bold;">@girovolt_gt</a></p>
                     </div>
-
-
                 </div>
             </div>
         </div>
-        <script type="module"
-            src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

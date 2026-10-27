@@ -1,5 +1,5 @@
 a:hover {
-    background-color: #b7ebd2;
+    background-color: #c3ebb7;
     transition: background-color 0.5s;
 }
 
@@ -20,12 +20,12 @@ a:hover {
 
 .girovolt {
     color: #00b894;
-    text-shadow: 4px 4px 6px rgba(12, 155, 55, 0.5);
+    text-shadow: 4px 4px 6px rgba(0, 184, 148, 0.3);
     font-size: 98px;
 }
 
 #presentamos {
-    color: #00b49073;
+    color: #495057;
     font-size: 48px;
     font-family: 'Arial', sans-serif;
 }
@@ -33,6 +33,7 @@ a:hover {
 #slogan {
     font-size: 34px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #212529;
 }
 
 .btn-solid {
@@ -42,13 +43,14 @@ a:hover {
     padding: 10px 20px;
     font-size: 26px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-solid:hover {
     width: 250px;
     height: 80px;
     font-size: 28px;
+    background-color: #008f72;
 }
 
 #boton {
@@ -71,7 +73,7 @@ a:hover {
 #contactos {
     margin-top: 100px;
     margin-left: 80px;
-    background-color: #0f0f0f;
+    background-color: #02090a;
     color: #ffffff;
     margin: 0px;
     padding: 20px;
@@ -99,6 +101,31 @@ a:hover {
     background-color: #00b894;
 }
 
+.navbar-custom-light {
+    background-color: #f8fafc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 12px 30px;
+}
+
+.navbar-custom-light .nav-link {
+    color: #495057 !important;
+    font-size: 18px;
+    padding: 8px 22px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom-light .nav-link.active {
+    background-color: #b7ebd2 !important;
+    color: #0f0f0f !important;
+    font-weight: 600;
+}
+
+.navbar-custom-light .nav-link:hover:not(.active) {
+    background-color: #f1f3f5;
+    color: #00b894 !important;
+}
+
 @media(max-width: 950px) {
     body {
         background-color: #0f0f0f;
@@ -121,5 +148,101 @@ a:hover {
 
     .contacto {
         margin-top: 50px;
+    }
+}
+
+.navbar-custom-light .navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0.7rem;
+}
+
+.navbar-custom-light .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.35);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-custom-light {
+        padding: 8px 20px;
+    }
+
+    .navbar-custom-light .navbar-collapse {
+        padding-top: 8px;
+    }
+
+    .navbar-custom-light .nav-link {
+        padding: 12px 18px !important;
+    }
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.flex {
+    flex-wrap: wrap;
+}
+
+@media (hover: none) {
+    .btn-solid:hover {
+        width: auto;
+        height: auto;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .girovolt {
+        font-size: clamp(56px, 9vw, 98px);
+    }
+
+    #presentamos {
+        font-size: clamp(30px, 5vw, 48px);
+    }
+
+    #slogan {
+        font-size: clamp(20px, 3vw, 34px);
+    }
+
+    .informacion {
+        margin-left: 40px;
+    }
+
+    #boton {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .inicio {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .informacion {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #boton {
+        margin: 40px 0 0;
+    }
+
+    .logo {
+        width: 80%;
+        max-width: 560px;
+        height: auto;
+        margin: 10px auto 0;
+    }
+
+    .contacto {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .girovolt {
+        font-size: clamp(44px, 16vw, 72px);
     }
 }

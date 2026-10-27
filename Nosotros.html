@@ -1,50 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros</title>
+    <title>Nosotros - GiroVolt</title>
     <link rel="stylesheet" href="Nosotros.css">
-    </link>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
-        <div class="navbar-seguimiento">
-        <nav class="navbar sm:navbar-expand bg-1 fg-2">
-            <div class="container-fluid">
-                <img src="imagenes/Captura de pantalla 2026-10-21 111720.png" alt="Logo" width="80" height="80"
-                    class="d-inline-block align-text-top">
-                <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+
+    <div class="navbar-seguimiento">
+        <nav class="navbar navbar-expand-lg navbar-custom-light">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <a class="navbar-brand m-0" href="index.html">
+                    <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" height="60">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <dialog class="drawer drawer-end" tabindex="-1" id="navbarNavAltMarkup"
-                    aria-labelledby="navbarNavAltMarkupLabel">
-                    <div class="drawer-header">
-                        <h5 class="drawer-title" id="navbarNavAltMarkupLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <div class="navbar-nav gap-lg-3">                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="Nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="productos.html">Productos</a>
+                        <a class="nav-link" href="index2.html">Inicio de sesión</a>
+                
                     </div>
-                    <div class="drawer-body">
-                        <div class="nav nav-pills navbar-nav">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                            <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
-                            <a class="nav-link" href="productos.html">Productos</a>
-                            <a class="nav-link" href="index2.html">Inicio de sesión</a>
-                        </div>
-                    </div>
-                </dialog>
+                </div>
             </div>
         </nav>
     </div>
 
-        /* No se de que se trata nuestra empresa 
-        realmente, no se si alguien mas podria continuar 
-        con la descripcion de la empresa?
-        */
+    <section class="hero-section text-center mb-5" style="margin-top: 80px;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Conoce GiroVolt</h1>
+            <p class="lead mt-3 fs-4">"Moviendo el futuro sin contaminar el presente "</p>
+        </div>
+    </section>
 
+    <div class="container mb-5">
 
-     <script type="module"
-            src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card card-custom h-100 p-4 border-top border-primary border-4">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-blue">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="card-title fw-bold text-primary mb-3">Nuestra Misión</h3>
+                        <p class="card-text text-muted fs-5">
+                            Demostrar el potencial de las energías limpias y renovables mediante prototipos interactivos
+                            y tecnología educativa, uniendo la ingeniería, el diseño web y los sistemas embebidos para
+                            concientizar e inspirar a las nuevas generaciones a construir un futuro sostenible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-custom h-100 p-4 border-top border-success border-4">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-green">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="card-title fw-bold text-success mb-3">Nuestra Visión</h3>
+                        <p class="card-text text-muted fs-5">
+                            Ser un proyecto referente de emprendimiento e innovación tecnológica juvenil en Guatemala,
+                            reconocido por educar y demostrar de forma práctica cómo la integración de la mecánica, la
+                            electrónica y la programación puede transformar el uso y aprovechamiento de la energía
+                            verde.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark">Nuestros Valores</h2>
+        </div>
+
+        <div class="row g-4 mb-5 justify-content-center">
+            <div class="col-md-4">
+                <div class="card card-custom h-100 p-3">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-blue">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h5 class="fw-bold">Innovación Aplicada</h5>
+                        <p class="text-muted small">Buscamos soluciones creativas combinando tecnología, electrónica y
+                            desarrollo para resolver desafíos reales de forma práctica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-custom h-100 p-3">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-green">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h5 class="fw-bold">Sostenibilidad Ambiental</h5>
+                        <p class="text-muted small">Mantenemos un firme compromiso con la preservación del entorno,
+                            promoviendo nuestro lema en cada prototipo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-custom h-100 p-3">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-orange">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h5 class="fw-bold">Trabajo en Equipo</h5>
+                        <p class="text-muted small">Creemos en la fuerza de la colaboración, uniendo habilidades
+                            diversas para convertir ideas complejas en realidades funcionales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-custom h-100 p-3">
+                    <div class="card-body">
+                        <div class="icon-box bg-light-purple">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h5 class="fw-bold">Curiosidad y Aprendizaje</h5>
+                        <p class="text-muted small">Queremos descubrir nuevas formas de ayudar ala madre naturaleza y
+                            cada paso que demos aprender de nuestros errores</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="contacto">
+            <div class="cont">
+                <div id="log"></div>
+                <div id="contactos">
+                    <h1>Contactos</h1>
+                    <br>
+                    <div class="flex">
+                        <div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Instagram_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+                                alt="Instagram" width="30" height="30">
+                        </div>
+                        <div>
+                            <p>Instagram: <a href="https://www.instagram.com/girovolt_gt/" target="_blank"
+                                    style="color: #00b894; font-weight: bold;">@girovolt_gt</a></p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div>
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.mMBQtkeALKPcz_UcbngMIAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                                alt="TikTok" width="30" height="30">
+                        </div>
+                        <div>
+                            <p>TikTok: <a href="https://www.tiktok.com/@girovolt_gt?is_from_webapp=1&sender_device=pc"
+                                    target="_blank" style="color: #00b894; font-weight: bold;">@girovolt_gt</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

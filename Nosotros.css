@@ -1,4 +1,110 @@
-a:hover{
+a:hover {
     background-color: #b7ebd2;
     transition: background-color 0.5s;
+}
+
+.navbar-custom-light {
+    background-color: #f8fafc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 12px 30px;
+}
+
+.navbar-custom-light .nav-link {
+    color: #495057 !important;
+    font-size: 18px;
+    padding: 8px 22px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom-light .nav-link.active {
+    background-color: #b7ebd2 !important;
+    color: #0f0f0f !important;
+    font-weight: 600;
+}
+
+.navbar-custom-light .nav-link:hover:not(.active) {
+    background-color: #f8fafc;
+    color: #00b894 !important;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #14dda1 0%, #125212 100%);
+    color: white;
+    padding: 60px 20px;
+}
+
+.card-custom {
+    border: none;
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.bg-light-green {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.bg-light-blue {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.bg-light-orange {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+.bg-light-purple {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.counter-card {
+    background: #f8f9fa;
+    border-left: 5px solid #198754;
+}
+
+.lead {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-custom-light .navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0.7rem;
+}
+
+.navbar-custom-light .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.35);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-custom-light {
+        padding: 8px 20px;
+    }
+
+    .navbar-custom-light .navbar-collapse {
+        padding-top: 8px;
+    }
+
+    .navbar-custom-light .nav-link {
+        padding: 12px 18px !important;
+    }
 }
