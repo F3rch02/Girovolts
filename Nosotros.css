@@ -108,3 +108,26 @@ a:hover {
         padding: 12px 18px !important;
     }
 }
+
+.hero-section {
+    margin-top: 80px;
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        padding: 40px 12px;
+    }
+
+    .hero-section .display-4 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .hero-section .lead {
+        font-size: clamp(1.1rem, 5vw, 1.5rem) !important;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

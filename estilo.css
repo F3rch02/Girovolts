@@ -246,3 +246,99 @@ a:hover {
         font-size: clamp(44px, 16vw, 72px);
     }
 }
+
+/* Ajustes adicionales para mantener el contenido dentro de la pantalla. */
+* {
+    box-sizing: border-box;
+}
+
+.inicio {
+    width: 100%;
+    align-items: center;
+    padding-left: clamp(16px, 4vw, 48px);
+    padding-right: clamp(16px, 4vw, 48px);
+}
+
+.informacion,
+.logo {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.informacion {
+    width: auto;
+    margin-left: 0;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+}
+
+#boton {
+    margin-left: 0;
+}
+
+.navbar-custom-light .navbar-brand img {
+    display: block;
+    max-width: min(45vw, 180px);
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+#contactos .flex {
+    align-items: center;
+}
+
+#contactos .flex p {
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 991.98px) {
+    .inicio {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .informacion {
+        flex: auto;
+    }
+
+    .logo {
+        flex: auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .inicio {
+        padding: 128px 16px 32px;
+    }
+
+    .informacion,
+    .logo {
+        width: 100%;
+    }
+
+    .girovolt {
+        font-size: clamp(40px, 14vw, 64px);
+        overflow-wrap: anywhere;
+    }
+
+    #presentamos {
+        font-size: clamp(24px, 8vw, 38px);
+    }
+
+    #slogan {
+        font-size: clamp(18px, 6vw, 26px);
+    }
+
+    #contactos {
+        padding: 24px 16px;
+    }
+
+    .contacto {
+        margin-top: 32px;
+    }
+}

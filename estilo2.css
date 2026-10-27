@@ -196,3 +196,64 @@ a:hover {
         font-size: 16px;
     }
 }
+
+.logo {
+    margin-top: 100px;
+    padding: 0 16px;
+}
+
+.padre {
+    width: min(100% - 32px, 1120px);
+    margin: 0 auto 32px;
+    gap: 24px;
+}
+
+.hijo,
+.hijo2 {
+    min-width: 0;
+    margin: 0;
+}
+
+.hijo form,
+.hijo2 center {
+    max-width: 100%;
+}
+
+.hijo input,
+.hijo2 input {
+    max-width: 100%;
+}
+
+@media (max-width: 991.98px) {
+    .padre {
+        margin-top: 24px;
+    }
+
+    .hijo,
+    .hijo2 {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .logo {
+        margin-top: 88px;
+    }
+
+    #logo {
+        width: min(70vw, 260px);
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .padre {
+        width: calc(100% - 24px);
+        gap: 16px;
+    }
+
+    .hijo,
+    .hijo2 {
+        padding: 18px 14px;
+    }
+}
