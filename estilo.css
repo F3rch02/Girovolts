@@ -127,10 +127,6 @@ a:hover {
 }
 
 @media(max-width: 950px) {
-    body {
-        background-color: #0f0f0f;
-    }
-
     .inicio {
         margin-top: 0;
         padding-top: 150px;
@@ -214,6 +210,10 @@ a:hover {
 }
 
 @media (max-width: 991.98px) {
+    html body {
+        background-color: #02090a;
+    }
+
     .inicio {
         flex-direction: column;
         align-items: center;
@@ -238,6 +238,11 @@ a:hover {
 
     .contacto {
         margin-top: 50px;
+        background-color: #02090a;
+    }
+
+    .contacto .cont {
+        background-color: #02090a;
     }
 }
 
