@@ -131,3 +131,16 @@ a:hover {
         padding-right: 16px;
     }
 }
+
+@media (max-width: 991.98px) {
+    html body {
+        background-color: #fff !important;
+    }
+
+    .contacto,
+    .contacto .cont,
+    #contactos {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+}

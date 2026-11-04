@@ -39,8 +39,8 @@ h1{
     width: 80%;
     margin: 50px auto;
 }
-body{
-    background-color: #ecf4fb;
+body.pagina-productos {
+    background-color: #fff;
 }
 h1::before{
     content: "";
@@ -53,7 +53,7 @@ h1::before{
     z-index: -1;
 }
 h1 span{
-    background-color:#ecf4fb;
+    background-color: #fff;
     padding: 0 15px;
 }
 /* ---------- Galería de productos (mejorada) ---------- */
