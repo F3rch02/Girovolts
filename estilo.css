@@ -24,6 +24,10 @@ a:hover {
     font-size: 98px;
 }
 
+.inicio h1::before {
+    display: none;
+}
+
 #presentamos {
     color: #495057;
     font-size: 48px;
