@@ -58,8 +58,6 @@ body {
     font-size: 18px;
 }
 
-
-
 .anuncio button:hover {
     background-color: #005b8f;
 }
@@ -157,7 +155,6 @@ a:hover {
 }
 
 @media (max-width: 991.98px) {
-    /* formularios uno debajo del otro */
     .padre {
         flex-direction: column;
         align-items: center;
@@ -256,4 +253,53 @@ a:hover {
     .hijo2 {
         padding: 18px 14px;
     }
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.selector {
+    display: flex;
+    gap: 12px;
+    width: min(100% - 32px, 560px);
+    margin: 24px auto 0;
+}
+
+.selector button {
+    flex: 1;
+    min-height: 46px;
+    padding: 8px 16px;
+    border: 2px solid #85de7d;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #0B1B2B;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.selector button:hover {
+    background-color: #b7ebd2;
+}
+
+.selector button.activo {
+    background-color: #85de7d;
+}
+
+.selector button:focus-visible {
+    outline: 3px solid #00b894;
+    outline-offset: 2px;
+}
+
+.padre {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hijo,
+.hijo2 {
+    width: 100%;
+    max-width: 560px;
 }

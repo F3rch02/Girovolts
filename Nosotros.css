@@ -110,7 +110,7 @@ a:hover {
 }
 
 .hero-section {
-    margin-top: 80px;
+    margin: 125px 20px 0;
 }
 
 @media (max-width: 575.98px) {
@@ -137,34 +137,38 @@ a:hover {
         background-color: #fff !important;
     }
 
-    .contacto,
-    .contacto .cont,
-    #contactos {
-        background-color: #000000 !important;
-        color: #ffffff !important;
+    .meta ul {
+        padding-left: 0;
+    }
+
+    .tarjeta p {
+        font-size: 14px;
+    }
+
+    .meta li {
+        font-size: 13px;
     }
 }
 
-/* CONFIGURACIÓN GENERAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html body {
     font-family: 'Poppins', sans-serif;
     background: #f2f8f3;
     color: #202c3c;
-    padding: 45px 20px;
+    padding: 0;
 }
 
 .contenedor {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ENCABEZADO */
 .encabezado {
     text-align: center;
     margin-bottom: 55px;
@@ -189,7 +193,6 @@ body {
     font-size: 14px;
 }
 
-/* SECCIONES */
 .seccion {
     margin-bottom: 55px;
 }
@@ -211,14 +214,12 @@ body {
     color: #15966a;
 }
 
-/* DISTRIBUCIÓN */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
 }
 
-/* TARJETAS */
 .tarjeta {
     background: #ffffff;
     padding: 25px;
@@ -232,7 +233,6 @@ body {
     box-shadow: 0 10px 25px rgba(24, 90, 56, 0.16);
 }
 
-/* BORDES DE TARJETAS */
 .objetivo {
     border-left: 4px solid #2e9b64;
 }
@@ -241,7 +241,6 @@ body {
     border-left: 4px solid #138a5e;
 }
 
-/* ICONOS */
 .icono {
     width: 48px;
     height: 48px;
@@ -258,7 +257,6 @@ body {
     color: #15966a;
 }
 
-/* TÍTULOS Y TEXTOS */
 .tarjeta h3 {
     font-size: 17px;
     font-weight: 700;
@@ -272,7 +270,6 @@ body {
     color: #68768a;
 }
 
-/* LISTA DE METAS */
 .meta ul {
     list-style: none;
     margin-top: 12px;
@@ -301,7 +298,6 @@ body {
     top: 9px;
 }
 
-/* PIE DE PÁGINA */
 footer {
     text-align: center;
     border-top: 1px solid #e1e7ef;
@@ -311,11 +307,13 @@ footer {
     font-size: 12px;
 }
 
-/* DISEÑO RESPONSIVO */
 @media (max-width: 700px) {
+    .hero-section {
+        margin: 110px 15px 0;
+    }
 
-    body {
-        padding: 30px 15px;
+    .contenedor {
+        padding: 0 15px;
     }
 
     .encabezado h1 {
@@ -333,5 +331,13 @@ footer {
 
     .tarjeta {
         padding: 22px;
+    }
+
+    .tarjeta p {
+        font-size: 15px;
+    }
+
+    .meta li {
+        font-size: 14px;
     }
 }

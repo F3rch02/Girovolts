@@ -17,8 +17,15 @@
         <img src="imagenes/Logo con solo nombre.png" alt="Logo" width="600" height="500" id="logo">
     </div>
 
+    <div class="selector">
+        <button type="button" id="btnLogin" class="activo" aria-pressed="true"
+            onclick="mostrarFormulario('login')">Iniciar sesión</button>
+        <button type="button" id="btnRegistro" aria-pressed="false"
+            onclick="mostrarFormulario('registro')">Registrarse</button>
+    </div>
+
     <div class="padre">
-        <div class="hijo">
+        <div class="hijo" id="panelLogin">
             <center>
                 <h1>Iniciar Sesion</h1>
             </center>
@@ -38,7 +45,7 @@
             </center>
         </div>
 
-        <div class="hijo2">
+        <div class="hijo2" id="panelRegistro" hidden>
             <center>
                 <h1>Registro</h1>
 
@@ -66,6 +73,21 @@
     </div>
 
     <script>
+        function mostrarFormulario(cual) {
+            let esLogin = cual == "login";
+
+            document.getElementById("panelLogin").hidden = !esLogin;
+            document.getElementById("panelRegistro").hidden = esLogin;
+
+            let btnLogin = document.getElementById("btnLogin");
+            let btnRegistro = document.getElementById("btnRegistro");
+
+            btnLogin.classList.toggle("activo", esLogin);
+            btnRegistro.classList.toggle("activo", !esLogin);
+            btnLogin.setAttribute("aria-pressed", esLogin);
+            btnRegistro.setAttribute("aria-pressed", !esLogin);
+        }
+
         function registrar() {
             let usuario = document.getElementById("usuarioRegistro").value;
             let correo = document.getElementById("correoRegistro").value;
@@ -109,6 +131,7 @@
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
             alert("Usuario registrado correctamente");
+            mostrarFormulario("login");
 
             document.getElementById("usuarioRegistro").value = "";
             document.getElementById("correoRegistro").value = "";

@@ -3,19 +3,46 @@ a:hover {
     transition: background-color 0.5s;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #02090a;
+}
+
+body {
+    background-color: #fff;
+    display: flow-root;
+}
+
 .inicio {
     margin-top: 150px;
     display: flex;
     gap: 10px;
+    width: 100%;
+    align-items: center;
+    padding-left: clamp(16px, 4vw, 48px);
+    padding-right: clamp(16px, 4vw, 48px);
 }
 
 .logo {
-    width: 50%;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: auto;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
 }
 
 .informacion {
-    width: 50%;
-    margin-left: 80px;
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    margin-left: 0;
 }
 
 .girovolt {
@@ -59,36 +86,7 @@ a:hover {
 
 #boton {
     margin-top: 60px;
-    margin-left: 80px;
-}
-
-.navbar-seguimiento {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-}
-
-.contacto {
-    margin-top: 200px;
-}
-
-#contactos {
-    margin-top: 100px;
-    margin-left: 80px;
-    background-color: #02090a;
-    color: #ffffff;
-    margin: 0px;
-    padding: 20px;
-    width: 100%;
-    min-height: 31vh;
-    box-sizing: border-box;
-}
-
-.flex {
-    display: flex;
-    gap: 10px;
+    margin-left: 0;
 }
 
 #boton-nosotros {
@@ -103,6 +101,14 @@ a:hover {
 #boton-nosotros:hover {
     color: #fff;
     background-color: #00b894;
+}
+
+.navbar-seguimiento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
 }
 
 .navbar-custom-light {
@@ -130,27 +136,6 @@ a:hover {
     color: #00b894 !important;
 }
 
-@media(max-width: 950px) {
-    .inicio {
-        margin-top: 0;
-        padding-top: 150px;
-        background-color: #ffffff;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .logo {
-        margin-top: 10px;
-        margin-left: 0px;
-        width: 80%;
-        height: 40%;
-    }
-
-    .contacto {
-        margin-top: 50px;
-    }
-}
-
 .navbar-custom-light .navbar-toggler {
     border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0.5rem 0.7rem;
@@ -160,27 +145,41 @@ a:hover {
     box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.35);
 }
 
-@media (max-width: 991.98px) {
-    .navbar-custom-light {
-        padding: 8px 20px;
-    }
-
-    .navbar-custom-light .navbar-collapse {
-        padding-top: 8px;
-    }
-
-    .navbar-custom-light .nav-link {
-        padding: 12px 18px !important;
-    }
+.navbar-custom-light .navbar-brand img {
+    display: block;
+    max-width: min(45vw, 180px);
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
 }
 
-.logo img {
-    max-width: 100%;
-    height: auto;
+.contacto {
+    margin-top: 200px;
+}
+
+#contactos {
+    background-color: #02090a;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    min-height: 31vh;
+    box-sizing: border-box;
 }
 
 .flex {
+    display: flex;
+    gap: 10px;
     flex-wrap: wrap;
+}
+
+#contactos .flex {
+    align-items: center;
+}
+
+#contactos .flex p {
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
 }
 
 @media (hover: none) {
@@ -203,28 +202,31 @@ a:hover {
     #slogan {
         font-size: clamp(20px, 3vw, 34px);
     }
-
-    .informacion {
-        margin-left: 40px;
-    }
-
-    #boton {
-        margin-left: 40px;
-    }
 }
 
 @media (max-width: 991.98px) {
-    html body {
-        background-color: #02090a;
+    .navbar-custom-light {
+        padding: 8px 20px;
+    }
+
+    .navbar-custom-light .navbar-collapse {
+        padding-top: 8px;
+    }
+
+    .navbar-custom-light .nav-link {
+        padding: 12px 18px !important;
     }
 
     .inicio {
         flex-direction: column;
-        align-items: center;
+        margin-top: 0;
+        padding: 116px 20px 0;
     }
 
     .informacion {
-        width: 90%;
+        flex: none;
+        width: 100%;
+        max-width: 640px;
         margin: 0 auto;
         text-align: center;
     }
@@ -234,95 +236,20 @@ a:hover {
     }
 
     .logo {
+        flex: none;
         width: 80%;
         max-width: 560px;
-        height: auto;
         margin: 10px auto 0;
     }
 
     .contacto {
-        margin-top: 50px;
-        background-color: #02090a;
-    }
-
-    .contacto .cont {
-        background-color: #02090a;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .girovolt {
-        font-size: clamp(44px, 16vw, 72px);
-    }
-}
-
-/* Ajustes adicionales para mantener el contenido dentro de la pantalla. */
-* {
-    box-sizing: border-box;
-}
-
-.inicio {
-    width: 100%;
-    align-items: center;
-    padding-left: clamp(16px, 4vw, 48px);
-    padding-right: clamp(16px, 4vw, 48px);
-}
-
-.informacion,
-.logo {
-    flex: 1 1 0;
-    min-width: 0;
-}
-
-.informacion {
-    width: auto;
-    margin-left: 0;
-}
-
-.logo {
-    width: auto;
-    height: auto;
-}
-
-#boton {
-    margin-left: 0;
-}
-
-.navbar-custom-light .navbar-brand img {
-    display: block;
-    max-width: min(45vw, 180px);
-    height: auto;
-    max-height: 60px;
-    object-fit: contain;
-}
-
-#contactos .flex {
-    align-items: center;
-}
-
-#contactos .flex p {
-    margin-bottom: 0;
-    overflow-wrap: anywhere;
-}
-
-@media (max-width: 991.98px) {
-    .inicio {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .informacion {
-        flex: auto;
-    }
-
-    .logo {
-        flex: auto;
+        margin-top: 64px;
     }
 }
 
 @media (max-width: 575.98px) {
     .inicio {
-        padding: 128px 16px 32px;
+        padding: 108px 16px 0;
     }
 
     .informacion,
@@ -348,6 +275,6 @@ a:hover {
     }
 
     .contacto {
-        margin-top: 32px;
+        margin-top: 40px;
     }
 }
