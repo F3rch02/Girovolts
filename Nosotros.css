@@ -270,6 +270,28 @@ html body {
     color: #68768a;
 }
 
+.plazo-nota {
+    margin: -12px 0 20px;
+    color: #68768a;
+    font-size: 13px;
+}
+
+.plazo-objetivo {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 14px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid #e3eee6;
+    color: #138a5e !important;
+    font-weight: 600;
+}
+
+.plazo-objetivo i {
+    flex: 0 0 auto;
+    margin-top: 4px;
+}
+
 .meta ul {
     list-style: none;
     margin-top: 12px;
@@ -286,6 +308,18 @@ html body {
 
 .meta li:last-child {
     border-bottom: none;
+}
+
+.plazo-meta {
+    display: table;
+    margin-top: 6px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #e5f7ef;
+    color: #138a5e;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
 .meta li::before {
