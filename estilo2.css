@@ -167,31 +167,6 @@ a:hover {
         margin: 24px 0 0;
     }
 
-    .hijo label,
-    .hijo2 label {
-        display: block;
-        font-weight: 600;
-    }
-
-    .hijo input[type="text"],
-    .hijo input[type="password"],
-    .hijo input[type="email"],
-    .hijo2 input[type="text"],
-    .hijo2 input[type="password"],
-    .hijo2 input[type="email"] {
-        width: 100%;
-        max-width: 360px;
-        min-height: 44px;
-        padding: 8px 12px;
-        font-size: 16px;
-    }
-
-    .hijo input[type="submit"],
-    .hijo2 button {
-        min-height: 46px;
-        padding: 8px 26px;
-        font-size: 16px;
-    }
 }
 
 .logo {
@@ -211,14 +186,51 @@ a:hover {
     margin: 0;
 }
 
-.hijo form,
-.hijo2 center {
+.hijo h1,
+.hijo2 h1 {
+    text-align: center;
+}
+
+.hijo form {
     max-width: 100%;
 }
 
 .hijo input,
 .hijo2 input {
     max-width: 100%;
+}
+
+.form-fields {
+    display: grid;
+    gap: 16px;
+    width: min(100%, 360px);
+    margin: 20px auto 0;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-field input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    margin: 0 auto;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+.form-fields input[type="submit"],
+.form-fields button {
+    display: block;
+    justify-self: center;
+    min-height: 46px;
+    padding: 8px 26px;
+    font-size: 16px;
 }
 
 @media (max-width: 991.98px) {
