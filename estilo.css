@@ -71,22 +71,22 @@ body {
     background-color: #00b894;
     color: #fff;
     border: solid 2px #00b894;
-    padding: 10px 20px;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-size: 26px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-solid:hover {
-    width: 250px;
-    height: 80px;
-    font-size: 28px;
     background-color: #008f72;
+    transform: translateY(-2px);
 }
 
 #boton {
     margin-top: 60px;
-    margin-left: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #boton-nosotros {
@@ -182,14 +182,6 @@ body {
     overflow-wrap: anywhere;
 }
 
-@media (hover: none) {
-    .btn-solid:hover {
-        width: auto;
-        height: auto;
-        font-size: 26px;
-    }
-}
-
 @media (max-width: 1199.98px) {
     .girovolt {
         font-size: clamp(56px, 9vw, 98px);
@@ -276,5 +268,16 @@ body {
 
     .contacto {
         margin-top: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
+    .contacto {
+        margin-top: 48px;
+    }
+
+    #contactos {
+        min-height: 22vh;
+        padding: 14px 20px;
     }
 }
