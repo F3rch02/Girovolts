@@ -424,3 +424,121 @@ body {
         padding: 0;
     }
 }
+
+@media (min-width: 992px) and (max-width: 1599.98px) {
+    .navbar-custom-light .navbar-nav {
+        gap: 4px !important;
+    }
+
+    .navbar-custom-light .navbar-nav .nav-link {
+        font-size: 16px;
+        padding: 8px 13px !important;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-custom-light {
+        padding: 10px 16px;
+    }
+
+    .navbar-custom-light .navbar-nav {
+        gap: 2px !important;
+    }
+
+    .navbar-custom-light .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 8px 9px !important;
+    }
+}
+
+.pie-marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pie-marca img {
+    display: block;
+    flex: none;
+    width: auto;
+    height: 72px;
+}
+
+.pie-texto {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    text-align: left;
+}
+
+.pie-texto p {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.pie-nombre {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.pie-slogan {
+    font-size: 15px;
+}
+
+.pie-derechos {
+    margin-top: 6px !important;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+}
+
+@media (max-width: 575.98px) {
+    .pie-marca {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pie-marca img {
+        height: 64px;
+    }
+
+    .pie-texto {
+        text-align: center;
+    }
+
+    .pie-nombre {
+        font-size: 18px;
+    }
+
+    .pie-slogan {
+        font-size: 14px;
+    }
+}
+
+body.pie-abajo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+body.pie-abajo > .logo {
+    flex: none;
+}
+
+body.pie-abajo > .padre,
+body.pie-abajo > .inicio,
+body.pie-abajo > main {
+    margin-bottom: 48px;
+}
+
+body.pie-abajo > .contacto {
+    width: 100%;
+    margin-top: auto;
+}
