@@ -82,9 +82,56 @@
             btnRegistro.setAttribute("aria-pressed", !esLogin);
         }
 
+        function obtenerUsuarios() {
+            let datos;
+
+            try {
+                datos = localStorage.getItem("usuarios");
+            } catch (error) {
+                if (!(error instanceof DOMException)) throw error;
+                alert("El navegador bloqueó el acceso al almacenamiento. Abre la página desde un servidor local e inténtalo de nuevo.");
+                return null;
+            }
+
+            if (datos === null) return [];
+
+            let usuarios;
+            try {
+                usuarios = JSON.parse(datos);
+            } catch (error) {
+                if (!(error instanceof SyntaxError)) throw error;
+                alert("Los datos guardados están dañados. No se modificaron; borra la clave «usuarios» del almacenamiento del sitio para volver a registrarte.");
+                return null;
+            }
+
+            if (!Array.isArray(usuarios) || !usuarios.every(function (user) {
+                return user && typeof user.usuario == "string" && typeof user.contrasena == "string";
+            })) {
+                alert("Los datos guardados no tienen un formato válido. No se modificaron; borra la clave «usuarios» del almacenamiento del sitio para volver a registrarte.");
+                return null;
+            }
+
+            return usuarios;
+        }
+
+        function guardarUsuarios(usuarios) {
+            try {
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
+                return true;
+            } catch (error) {
+                if (!(error instanceof DOMException)) throw error;
+                if (error.name == "QuotaExceededError") {
+                    alert("No se pudo guardar: el almacenamiento del navegador está lleno.");
+                } else {
+                    alert("El navegador bloqueó el guardado. Abre la página desde un servidor local e inténtalo de nuevo.");
+                }
+                return false;
+            }
+        }
+
         function registrar() {
-            let usuario = document.getElementById("usuarioRegistro").value;
-            let correo = document.getElementById("correoRegistro").value;
+            let usuario = document.getElementById("usuarioRegistro").value.trim();
+            let correo = document.getElementById("correoRegistro").value.trim();
             let contrasena = document.getElementById("contrasenaRegistro").value;
             let confirmar = document.getElementById("confirmarRegistro").value;
 
@@ -103,7 +150,8 @@
                 return;
             }
 
-            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            let usuarios = obtenerUsuarios();
+            if (usuarios === null) return;
 
             let usuarioExiste = usuarios.find(function (user) {
                 return user.usuario == usuario;
@@ -122,7 +170,7 @@
 
             usuarios.push(nuevoUsuario);
 
-            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            if (!guardarUsuarios(usuarios)) return;
 
             alert("Usuario registrado correctamente");
             mostrarFormulario("login");
@@ -136,10 +184,11 @@
         function iniciarSesion(event) {
             event.preventDefault();
 
-            let usuario = document.getElementById("username").value;
+            let usuario = document.getElementById("username").value.trim();
             let contrasena = document.getElementById("password").value;
 
-            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            let usuarios = obtenerUsuarios();
+            if (usuarios === null) return;
 
             let usuarioEncontrado = usuarios.find(function (user) {
                 return user.usuario == usuario &&
