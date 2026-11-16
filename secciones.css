@@ -385,3 +385,439 @@
     background-color: #008f72;
     color: #fff;
 }
+
+.galeria-proyectos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "principal"
+        "rueda"
+        "rascacielos"
+        "sillas"
+        "energia";
+    gap: 28px;
+}
+
+.tarjeta-galeria {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-galeria:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(18, 82, 18, 0.18);
+}
+
+.foto-espacio {
+    position: relative;
+    flex: none;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, #e5f7ef 0%, #f8fafc 100%);
+}
+
+.tarjeta-principal .foto-espacio {
+    aspect-ratio: 4 / 3;
+}
+
+.foto-real {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.foto-real:not([src]) {
+    display: none;
+}
+
+.tarjeta-galeria:hover .foto-real {
+    transform: scale(1.04);
+}
+
+.foto-vacia {
+    position: absolute;
+    inset: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border: 2px dashed #8fd9bc;
+    border-radius: 16px;
+    color: #138a5e;
+    text-align: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.tarjeta-galeria:hover .foto-vacia {
+    border-color: #00b894;
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
+.foto-vacia > i {
+    font-size: 30px;
+}
+
+.foto-texto {
+    color: #4f6b5d;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.boton-foto,
+.boton-cambiar-foto {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 2px solid #00b894;
+    border-radius: 25px;
+    background-color: #00b894;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-foto:hover,
+.boton-cambiar-foto:hover {
+    border-color: #008f72;
+    background-color: #008f72;
+    transform: translateY(-2px);
+}
+
+.boton-foto:focus-visible,
+.boton-cambiar-foto:focus-visible {
+    outline: 3px solid #125212;
+    outline-offset: 3px;
+}
+
+.boton-cambiar-foto {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: none;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.con-foto .foto-vacia {
+    display: none;
+}
+
+.con-foto .boton-cambiar-foto {
+    display: inline-flex;
+}
+
+.contenido-galeria {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+}
+
+.etiqueta-tarjeta {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #e5f7ef;
+    color: #138a5e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.etiqueta-tarjeta i {
+    margin-right: 4px;
+}
+
+.contenido-galeria h3 {
+    margin: 4px 0 0;
+    color: #174b35;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.contenido-galeria p {
+    margin: 0;
+    color: #68768a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.tarjeta-principal {
+    border-top: 5px solid #00b894;
+}
+
+.tarjeta-principal .contenido-galeria h3 {
+    font-size: 26px;
+}
+
+.tarjeta-principal .contenido-galeria p {
+    font-size: 15px;
+}
+
+.tarjeta-energia {
+    justify-content: center;
+    background: linear-gradient(160deg, #f8fafc 0%, #e5f7ef 100%);
+}
+
+.cadena-energia {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 6px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cadena-energia li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #174b35;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cadena-energia li:not(.flecha-energia) i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #14dda1 0%, #125212 100%);
+    color: #fff;
+    font-size: 18px;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-energia:hover .cadena-energia li:not(.flecha-energia) i {
+    transform: rotate(15deg) scale(1.08);
+}
+
+.flecha-energia {
+    color: #15966a;
+}
+
+.seccion-aplicaciones {
+    margin-top: 20px;
+}
+
+.rejilla-aplicaciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.tarjeta-aplicacion {
+    display: flex;
+    flex: 1 1 280px;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 370px;
+    padding: 28px 24px;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-aplicacion:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icono-aplicacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #14dda1 0%, #125212 100%);
+    color: #fff;
+    font-size: 24px;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-aplicacion:hover .icono-aplicacion {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+.tarjeta-aplicacion h3 {
+    margin: 6px 0 0;
+    color: #234333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.tarjeta-aplicacion p {
+    margin: 0;
+    color: #68768a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.cierre-seccion {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 70px;
+    padding: 48px 24px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #0a8f69 0%, #125212 100%);
+    box-shadow: 0 10px 28px rgba(18, 82, 18, 0.25);
+    color: #fff;
+    text-align: center;
+}
+
+.cierre-seccion i {
+    font-size: 34px;
+    opacity: 0.9;
+}
+
+.cierre-seccion p {
+    margin: 0;
+    max-width: 22ch;
+    font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+@media (min-width: 576px) {
+    .galeria-proyectos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "principal principal"
+            "rueda rascacielos"
+            "sillas energia";
+    }
+
+    .tarjeta-principal .foto-espacio {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (min-width: 1100px) {
+    .galeria-proyectos {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr) minmax(0, 1fr);
+        grid-template-areas:
+            "rueda principal rascacielos"
+            "sillas principal energia";
+    }
+
+    .tarjeta-principal .foto-espacio {
+        flex: 1 1 auto;
+        min-height: 380px;
+        aspect-ratio: auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .galeria-proyectos {
+        gap: 22px;
+    }
+
+    .contenido-galeria {
+        padding: 20px;
+    }
+
+    .tarjeta-principal .contenido-galeria h3 {
+        font-size: 22px;
+    }
+
+    .contenido-galeria p,
+    .tarjeta-aplicacion p {
+        font-size: 15px;
+    }
+
+    .cierre-seccion {
+        margin-top: 48px;
+        padding: 36px 18px;
+    }
+}
+
+@media (hover: none) {
+    .tarjeta-galeria:hover,
+    .tarjeta-aplicacion:hover {
+        transform: none;
+    }
+
+    .tarjeta-galeria:hover .foto-real {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tarjeta-galeria,
+    .tarjeta-aplicacion,
+    .foto-real,
+    .icono-aplicacion,
+    .boton-foto,
+    .boton-cambiar-foto,
+    .cadena-energia li i {
+        transition: none;
+    }
+
+    .tarjeta-galeria:hover,
+    .tarjeta-aplicacion:hover,
+    .tarjeta-galeria:hover .foto-real,
+    .tarjeta-aplicacion:hover .icono-aplicacion {
+        transform: none;
+    }
+}
+
+.seccion-productos {
+    margin-top: 70px;
+}
+
+.seccion-productos .encabezado-secundario {
+    margin-top: 0;
+}
+
+.seccion-productos .tarjeta-proyecto {
+    border-radius: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-productos .tarjeta-proyecto:hover {
+    box-shadow: 0 14px 30px rgba(18, 82, 18, 0.18);
+}
+
+.seccion-productos .tarjeta-vacia {
+    box-shadow: none;
+}
+
+.seccion-productos .tarjeta-vacia:hover {
+    box-shadow: none;
+}
+
+@media (max-width: 575.98px) {
+    .seccion-productos {
+        margin-top: 48px;
+    }
+}
