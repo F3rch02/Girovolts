@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprar - GiroVolt</title>
-
+    <link rel="stylesheet" href="estilo2.css">
     <link rel="stylesheet" href="Nosotros.css">
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="estilosfondo.css">
     <link rel="stylesheet" href="secciones.css">
+    <link rel="stylesheet" href="compra.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -49,14 +50,163 @@
         </div>
     </section>
 
-    <main class="contenedor pagina-seccion">
+    <div class="selector">
+        <button type="button" id="btnLogin" class="activo" aria-pressed="true">Llenado de datos</button>
+    </div>
 
-        <p class="text-center mt-4">
-            <a class="enlace-mas" href="Proyecto.html#productos">
-                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a los productos
-            </a>
-        </p>
-    </main>
+    <div class="padre">
+        <div class="hijo" id="panelLogin">
+            <h1>Ingrese sus datos</h1>
+            <form onsubmit="iniciarSesion(event)">
+                <div class="form-fields">
+                    <div class="form-field">
+                        <label for="username">PAN:</label>
+                        <input type="text" id="username" name="username" inputmode="numeric" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Confirmar datos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section class="capa-compra" id="capaCompra" role="dialog" aria-modal="true"
+        aria-labelledby="tituloCarrito" hidden>
+        <div class="panel-compra">
+            <h2 id="tituloCarrito" tabindex="-1">Productos agregados al carrito</h2>
+            <div id="contenidoCarrito">
+                <ul class="lista-carrito" id="listaCarrito"></ul>
+                <p class="total-carrito">Total: <strong id="totalCarrito">Q0.00</strong></p>
+                <button class="boton-finalizar" id="btnFinalizar" type="button">Confirmar compra</button>
+            </div>
+            <div class="resultado-compra" id="resultadoCompra" role="status" hidden>
+                <p>Compra realizada correctamente.</p>
+                <p>Total comprado: <strong id="totalComprado">Q0.00</strong></p>
+                <a class="boton-finalizar" href="Proyecto.html#productos">Volver a productos</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const claveCarrito = "carritoGiroVolt";
+        const formatoMoneda = new Intl.NumberFormat("es-GT", {
+            style: "currency",
+            currency: "GTQ"
+        });
+
+        function iniciarSesion(event) {
+            event.preventDefault();
+
+            const pan = document.getElementById("username").value.trim();
+            const contrasena = document.getElementById("password").value;
+            if (pan === "1234" && contrasena === "1234") {
+                mostrarCarrito();
+                return;
+            }
+
+            alert("PAN o contraseña incorrectos. Para esta compra, ingresa PAN 1234 y contraseña 1234.");
+        }
+
+        function obtenerCarrito() {
+            const datos = localStorage.getItem(claveCarrito);
+            if (datos === null) return [];
+
+            const carrito = JSON.parse(datos);
+            if (!Array.isArray(carrito) || !carrito.every((producto) =>
+                producto &&
+                typeof producto.nombre === "string" &&
+                Number.isFinite(producto.precio) &&
+                Number.isInteger(producto.cantidad) &&
+                producto.cantidad > 0
+            )) {
+                throw new Error("El formato del carrito guardado no es válido.");
+            }
+
+            return carrito;
+        }
+
+        function mostrarCarrito() {
+            let carrito;
+            try {
+                carrito = obtenerCarrito();
+            } catch (error) {
+                alert("No se pudo leer el carrito guardado. Revisa el almacenamiento del navegador e inténtalo de nuevo.");
+                return;
+            }
+
+            document.getElementById("capaCompra").hidden = false;
+            document.getElementById("contenidoCarrito").hidden = false;
+            document.getElementById("resultadoCompra").hidden = true;
+            document.getElementById("tituloCarrito").focus();
+            dibujarCarrito(carrito);
+        }
+
+        function dibujarCarrito(carrito) {
+            const lista = document.getElementById("listaCarrito");
+            lista.replaceChildren();
+
+            if (carrito.length === 0) {
+                const mensaje = document.createElement("li");
+                mensaje.className = "carrito-vacio";
+                mensaje.textContent = "No hay productos en el carrito.";
+                lista.appendChild(mensaje);
+            }
+
+            carrito.forEach((producto, indice) => {
+                const elemento = document.createElement("li");
+                elemento.className = "producto-carrito";
+
+                const detalle = document.createElement("span");
+                detalle.textContent = `${producto.nombre} · ${producto.cantidad} × ${formatoMoneda.format(producto.precio)}`;
+
+                const quitar = document.createElement("button");
+                quitar.type = "button";
+                quitar.className = "boton-quitar";
+                quitar.textContent = "−";
+                quitar.setAttribute("aria-label", `Quitar una unidad de ${producto.nombre}`);
+                quitar.addEventListener("click", () => quitarUnidad(indice));
+
+                elemento.append(detalle, quitar);
+                lista.appendChild(elemento);
+            });
+
+            const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
+            document.getElementById("totalCarrito").textContent = formatoMoneda.format(total);
+            document.getElementById("btnFinalizar").disabled = carrito.length === 0;
+        }
+
+        function quitarUnidad(indice) {
+            try {
+                const carrito = obtenerCarrito();
+                carrito[indice].cantidad -= 1;
+                if (carrito[indice].cantidad === 0) carrito.splice(indice, 1);
+                localStorage.setItem(claveCarrito, JSON.stringify(carrito));
+                dibujarCarrito(carrito);
+            } catch (error) {
+                alert("No se pudo actualizar el carrito. Revisa el almacenamiento del navegador e inténtalo de nuevo.");
+            }
+        }
+
+        function finalizarCompra() {
+            try {
+                const carrito = obtenerCarrito();
+                if (carrito.length === 0) return;
+
+                const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
+                localStorage.setItem(claveCarrito, JSON.stringify([]));
+                document.getElementById("contenidoCarrito").hidden = true;
+                document.getElementById("resultadoCompra").hidden = false;
+                document.getElementById("totalComprado").textContent = formatoMoneda.format(total);
+            } catch (error) {
+                alert("Los datos son incorrectos.");
+            }
+        }
+
+        document.getElementById("btnFinalizar").addEventListener("click", finalizarCompra);
+    </script>
 
     <div class="contacto pie-simple">
         <div class="pie-marca">
