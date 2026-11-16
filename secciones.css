@@ -885,6 +885,40 @@
     background: #008f72;
 }
 
+.accion-comprar {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0 12px;
+}
+
+.boton-comprar-final {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 10px 28px;
+    border: 2px solid #00b894;
+    border-radius: 12px;
+    background: #00b894;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-comprar-final:hover {
+    transform: translateY(-2px);
+    border-color: #008f72;
+    background: #008f72;
+    color: #fff;
+}
+
+.boton-comprar-final:focus-visible {
+    outline: 3px solid #00b894;
+    outline-offset: 3px;
+}
+
 @media (max-width: 575.98px) {
     .seccion-productos {
         margin-top: 48px;
