@@ -5,10 +5,20 @@ if (seccionProductos) {
     const claveCarrito = "carritoGiroVolt";
 
     function obtenerCarrito() {
-        const carritoGuardado = localStorage.getItem(claveCarrito);
+        let carritoGuardado;
+        try {
+            carritoGuardado = localStorage.getItem(claveCarrito);
+        } catch (error) {
+            throw new Error("El navegador bloqueó el acceso al almacenamiento.");
+        }
         if (carritoGuardado === null) return [];
 
-        const carrito = JSON.parse(carritoGuardado);
+        let carrito;
+        try {
+            carrito = JSON.parse(carritoGuardado);
+        } catch (error) {
+            throw new Error("Los datos guardados del carrito están dañados.");
+        }
         const formatoValido = Array.isArray(carrito) && carrito.every((producto) =>
             producto &&
             typeof producto.nombre === "string" &&

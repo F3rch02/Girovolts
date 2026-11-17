@@ -111,10 +111,20 @@
         }
 
         function obtenerCarrito() {
-            const datos = localStorage.getItem(claveCarrito);
+            let datos;
+            try {
+                datos = localStorage.getItem(claveCarrito);
+            } catch (error) {
+                throw new Error("El navegador bloqueó el acceso al almacenamiento.");
+            }
             if (datos === null) return [];
 
-            const carrito = JSON.parse(datos);
+            let carrito;
+            try {
+                carrito = JSON.parse(datos);
+            } catch (error) {
+                throw new Error("Los datos guardados del carrito están dañados.");
+            }
             if (!Array.isArray(carrito) || !carrito.every((producto) =>
                 producto &&
                 typeof producto.nombre === "string" &&
@@ -142,6 +152,10 @@
             document.getElementById("resultadoCompra").hidden = true;
             document.getElementById("tituloCarrito").focus();
             dibujarCarrito(carrito);
+        }
+
+        function cerrarCarrito() {
+            document.getElementById("capaCompra").hidden = true;
         }
 
         function dibujarCarrito(carrito) {
@@ -201,11 +215,17 @@
                 document.getElementById("resultadoCompra").hidden = false;
                 document.getElementById("totalComprado").textContent = formatoMoneda.format(total);
             } catch (error) {
-                alert("Los datos son incorrectos.");
+                alert("No se pudo finalizar la compra. Revisa el almacenamiento del navegador e inténtalo de nuevo.");
             }
         }
 
         document.getElementById("btnFinalizar").addEventListener("click", finalizarCompra);
+        document.getElementById("capaCompra").addEventListener("click", (evento) => {
+            if (evento.target === evento.currentTarget) cerrarCarrito();
+        });
+        document.addEventListener("keydown", (evento) => {
+            if (evento.key === "Escape") cerrarCarrito();
+        });
     </script>
 
     <div class="contacto pie-simple">
@@ -220,5 +240,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
+<script>
+ window.difyChatbotConfig = {
+  token: 'S0TWqh3Tr23WSubg',
+  baseUrl: 'https://udify.app',
+  routeSegment: 'agent',
+  inputs: {
+    // You can define the inputs from the Start node here
+    // key is the variable name
+    // e.g.
+    // name: "NAME"
+  },
+  systemVariables: {
+    // user_id: 'YOU CAN DEFINE USER ID HERE',
+    // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
+  },
+  userVariables: {
+    // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
+    // name: 'YOU CAN DEFINE USER NAME HERE',
+  },
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="S0TWqh3Tr23WSubg"
+ defer>
+</script>
+<script src="chatbot-mobile.js" defer></script>
+<style>
+  #dify-chatbot-bubble-button { background-color: #1C64F2 !important; }
+</style>
 </html>

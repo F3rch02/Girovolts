@@ -542,3 +542,47 @@ body.pie-abajo > .contacto {
     width: 100%;
     margin-top: auto;
 }
+
+/* Widget de inteligencia artificial adaptativo */
+#dify-chatbot-bubble-window {
+    width: min(24rem, calc(100vw - 24px)) !important;
+    height: min(40rem, calc(100dvh - 96px)) !important;
+    max-height: calc(100dvh - 96px) !important;
+    position: fixed !important;
+    z-index: 10001 !important;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    right: 12px !important;
+    bottom: 84px !important;
+}
+
+#dify-chatbot-bubble-button {
+    position: fixed !important;
+    z-index: 10002 !important;
+    right: 16px !important;
+    bottom: 16px !important;
+}
+
+@media (max-width: 575.98px) {
+    #dify-chatbot-bubble-window {
+        left: 8px !important;
+        width: calc(100vw - 16px) !important;
+        height: min(70dvh, calc(100dvh - 88px)) !important;
+        max-height: calc(100dvh - 88px) !important;
+        right: 8px !important;
+        bottom: 76px !important;
+    }
+
+    #dify-chatbot-bubble-button {
+        right: 12px !important;
+        bottom: 12px !important;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    #dify-chatbot-bubble-window {
+        height: calc(100dvh - 72px) !important;
+        max-height: calc(100dvh - 72px) !important;
+        bottom: 64px !important;
+    }
+}
