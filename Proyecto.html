@@ -22,6 +22,12 @@
                     <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" height="60">
                 </a>
 
+                <a class="boton-carrito-nav" id="botonCarritoNav" href="compra.html" aria-label="Abrir carrito">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    <span class="texto-carrito-nav">Carrito</span>
+                    <span class="contador-carrito-nav" id="contadorCarritoNav" hidden>0</span>
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
                     aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
                     <span class="navbar-toggler-icon"></span>
@@ -61,14 +67,9 @@
 
         <section class="galeria-proyectos" aria-label="Galería de proyectos GiroVolt">
             <article class="tarjeta-galeria " style="grid-area: rueda">
-                <figure class="foto-espacio">
-                    <img class="foto-real" alt="Fotografía de la maqueta de la rueda de la fortuna" loading="lazy"
-                        decoding="async">
-                    <div class="foto-vacia">
-                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
-                        <span class="foto-texto"><img src="imagenes/Ferris Wheel Joker GiroVolt Neón.png" alt=""
-                                height="350px" width="350px"></span>
-                    </div>
+                <figure class="foto-espacio" style="--fondo-foto: url('imagenes/Rueda_fortuna_neon.jpg')">
+                    <img class="foto-real" src="imagenes/Rueda_fortuna_neon.jpg" alt="Maqueta de la rueda de la fortuna de GiroVolt"
+                        loading="lazy" decoding="async">
                 </figure>
                 <div class="contenido-galeria">
                     <span class="etiqueta-tarjeta"><i class="fa-solid fa-arrows-spin" aria-hidden="true"></i> Atracción
@@ -82,13 +83,9 @@
             </article>
 
             <article class="tarjeta-galeria tarjeta-principal" style="grid-area: principal">
-                <figure class="foto-espacio">
-                    <img class="foto-real" alt="Fotografía de la maqueta del generador eléctrico manual GiroVolt"
+                <figure class="foto-espacio" style="--fondo-foto: url('imagenes/Exhibicion_GiroVolt.jpg')">
+                    <img class="foto-real" src="imagenes/Exhibicion_GiroVolt.jpg" alt="Exhibición GiroVolt: maqueta de la feria con la rueda de la fortuna, las sillas voladoras y el rascacielos"
                         loading="lazy" decoding="async">
-                    <div class="foto-vacia">
-                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
-                        <span class="foto-texto">Espacio reservado para la fotografía</span>
-                    </div>
                 </figure>
                 <div class="contenido-galeria">
                     <span class="etiqueta-tarjeta"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Proyecto
@@ -102,13 +99,9 @@ atracciones principales de la feria, como la rueda de la fortuna y el carrusel.<
             </article>
 
             <article class="tarjeta-galeria " style="grid-area: rascacielos">
-                <figure class="foto-espacio">
-                    <img class="foto-real" alt="Fotografía de la maqueta del rascacielos de caída libre"
+                <figure class="foto-espacio" style="--fondo-foto: url('imagenes/Rascacielos_Doom.jpg')">
+                    <img class="foto-real" src="imagenes/Rascacielos_Doom.jpg" alt="Maqueta del rascacielos de caída libre de GiroVolt"
                         loading="lazy" decoding="async">
-                    <div class="foto-vacia">
-                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
-                        <span class="foto-texto">Espacio reservado para la fotografía</span>
-                    </div>
                 </figure>
                 <div class="contenido-galeria">
                     <span class="etiqueta-tarjeta"><i class="fa-solid fa-building" aria-hidden="true"></i> Recuperación
@@ -121,13 +114,9 @@ atracciones principales de la feria, como la rueda de la fortuna y el carrusel.<
             </article>
 
             <article class="tarjeta-galeria " style="grid-area: sillas">
-                <figure class="foto-espacio">
-                    <img class="foto-real" alt="Fotografía de la maqueta de las sillas voladoras" loading="lazy"
-                        decoding="async">
-                    <div class="foto-vacia">
-                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
-                        <span class="foto-texto">Espacio reservado para la fotografía</span>
-                    </div>
+                <figure class="foto-espacio" style="--fondo-foto: url('imagenes/Sillas_Voladoras.jpg')">
+                    <img class="foto-real" src="imagenes/Sillas_Voladoras.jpg" alt="Maqueta de las sillas voladoras de GiroVolt"
+                        loading="lazy" decoding="async">
                 </figure>
                 <div class="contenido-galeria">
                     <span class="etiqueta-tarjeta"><i class="fa-solid fa-fan" aria-hidden="true"></i> Atracción
@@ -395,24 +384,37 @@ atracciones principales de la feria, como la rueda de la fortuna y el carrusel.<
             </div>
         </section>
 
-        <div class="accion-comprar">
-            <a class="boton-comprar-final" href="compra.html">
-                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Comprar
-            </a>
-        </div>
     </main>
 
     <div class="contacto pie-simple">
-        <div class="pie-marca">
-            <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" width="120" height="80">
-            <div class="pie-texto">
-                <p class="pie-nombre">GiroVolt</p>
-                <p class="pie-slogan">Moviendo el futuro sin contaminar el presente</p>
+        <div class="pie-contenido">
+            <div class="pie-marca">
+                <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" width="120" height="80">
+                <div class="pie-texto">
+                    <p class="pie-nombre">GiroVolt</p>
+                    <p class="pie-slogan">Moviendo el futuro sin contaminar el presente</p>
+                </div>
+            </div>
+
+            <address class="pie-direccion">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span><strong>GiroVolt</strong>53 Calle C y 17 Avenida, Bodega 4, Zona 12, <br>Ciudad de Guatemala</span>
+            </address>
+
+            <div class="pie-redes">
+                <p class="pie-redes-titulo">Síguenos</p>
+                <div class="pie-redes-iconos">
+                    <a href="https://www.instagram.com/girovolt_gt/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram de GiroVolt"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@girovolt_gt" target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok de GiroVolt"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="carrito-nav.js"></script>
     <script src="proyectos.js"></script>
 </body>
 <script>
@@ -442,6 +444,7 @@ atracciones principales de la feria, como la rueda de la fortuna y el carrusel.<
  defer>
 </script>
 <script src="chatbot-mobile.js" defer></script>
+<script src="givi-globo.js" defer></script>
 <style>
   #dify-chatbot-bubble-button { background-color: #1C64F2 !important; }
 </style>

@@ -65,6 +65,12 @@ if (seccionProductos) {
 
             localStorage.setItem(claveCarrito, JSON.stringify(carrito));
             actualizarResumen(carrito);
+
+            if (window.GiroVoltCarrito) {
+                window.GiroVoltCarrito.actualizar();
+                window.GiroVoltCarrito.rebotar();
+                window.GiroVoltCarrito.avisar("Producto agregado a tu carrito", "exito");
+            }
         } catch (error) {
             alert("No se pudo guardar el producto en el carrito. Revisa el almacenamiento del navegador e inténtalo de nuevo.");
         }

@@ -419,21 +419,31 @@
     width: 100%;
     margin: 0;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     background: linear-gradient(135deg, #e5f7ef 0%, #f8fafc 100%);
 }
 
 .tarjeta-principal .foto-espacio {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
 }
 
 .foto-real {
     position: absolute;
     inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
+}
+
+.foto-espacio[style*="--fondo-foto"]::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    background: var(--fondo-foto) center / cover no-repeat;
+    filter: blur(22px) brightness(0.9) saturate(1.1);
+    transform: scale(1.05);
 }
 
 .foto-real:not([src]) {
@@ -441,7 +451,7 @@
 }
 
 .tarjeta-galeria:hover .foto-real {
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 .foto-vacia {
@@ -718,7 +728,7 @@
     }
 
     .tarjeta-principal .foto-espacio {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 3;
     }
 }
 
@@ -730,10 +740,12 @@
             "sillas principal energia";
     }
 
+    .tarjeta-principal {
+        align-self: center;
+    }
+
     .tarjeta-principal .foto-espacio {
-        flex: 1 1 auto;
-        min-height: 380px;
-        aspect-ratio: auto;
+        aspect-ratio: 1 / 1;
     }
 }
 
@@ -885,40 +897,6 @@
     background: #008f72;
 }
 
-.accion-comprar {
-    display: flex;
-    justify-content: center;
-    margin: 32px 0 12px;
-}
-
-.boton-comprar-final {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    min-height: 48px;
-    padding: 10px 28px;
-    border: 2px solid #00b894;
-    border-radius: 12px;
-    background: #00b894;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.boton-comprar-final:hover {
-    transform: translateY(-2px);
-    border-color: #008f72;
-    background: #008f72;
-    color: #fff;
-}
-
-.boton-comprar-final:focus-visible {
-    outline: 3px solid #00b894;
-    outline-offset: 3px;
-}
-
 @media (max-width: 575.98px) {
     .seccion-productos {
         margin-top: 48px;
@@ -931,4 +909,9 @@
     .boton-carrito {
         flex: 1;
     }
+}
+
+.tarjeta-energia img {
+    max-width: 100%;
+    height: auto;
 }

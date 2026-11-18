@@ -23,6 +23,12 @@
                     <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" height="60">
                 </a>
 
+                <a class="boton-carrito-nav" id="botonCarritoNav" href="compra.html" aria-label="Abrir carrito">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    <span class="texto-carrito-nav">Carrito</span>
+                    <span class="contador-carrito-nav" id="contadorCarritoNav" hidden>0</span>
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
                     aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú de navegación">
                     <span class="navbar-toggler-icon"></span>
@@ -45,31 +51,66 @@
 
     <section class="hero-section text-center mb-5">
         <div class="container">
-            <h1 class="display-4 fw-bold">Comprar</h1>
-            <p class="lead mt-3 fs-4">Encuentra el producto GiroVolt que buscas</p>
+            <h1 class="display-4 fw-bold">Pagar</h1>
+            <p class="lead mt-3 fs-4">Completa tus datos de pago para finalizar tu compra</p>
         </div>
     </section>
 
-    <div class="selector">
-        <button type="button" id="btnLogin" class="activo" aria-pressed="true">Llenado de datos</button>
-    </div>
+    <ol class="pasos-pago" aria-label="Pasos de la compra">
+        <li class="paso-activo"><span>1</span> Datos de pago</li>
+        <li><span>2</span> Revisar carrito</li>
+        <li><span>3</span> Confirmar compra</li>
+    </ol>
 
-    <div class="padre">
-        <div class="hijo" id="panelLogin">
-            <h1>Ingrese sus datos</h1>
-            <form onsubmit="iniciarSesion(event)">
-                <div class="form-fields">
-                    <div class="form-field">
-                        <label for="username">PAN:</label>
-                        <input type="text" id="username" name="username" inputmode="numeric" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Confirmar datos</button>
+    <main class="pago-contenedor" id="panelDatos">
+        <section class="pago-tarjeta" aria-labelledby="tituloPago">
+            <div class="pago-cabecera">
+                <span class="pago-icono"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>
+                <div>
+                    <h2 id="tituloPago">Ingrese sus datos de pago</h2>
+                    <p>Tu información se usa únicamente para confirmar esta compra.</p>
                 </div>
+            </div>
+
+            <form class="pago-formulario" id="panelLogin" onsubmit="iniciarSesion(event)">
+                <div class="pago-campo">
+                    <label for="username">PAN (número de tarjeta)</label>
+                    <div class="pago-entrada">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <input type="text" id="username" name="username" inputmode="numeric" autocomplete="off"
+                            placeholder="Ingresa tu PAN" required>
+                    </div>
+                </div>
+
+                <div class="pago-campo">
+                    <label for="password">Contraseña</label>
+                    <div class="pago-entrada">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <input type="password" id="password" name="password" autocomplete="off"
+                            placeholder="Ingresa tu contraseña" required>
+                    </div>
+                </div>
+
+                <button class="pago-boton" type="submit">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Confirmar datos de pago
+                </button>
+
+                <p class="pago-seguro"><i class="fa-solid fa-lock" aria-hidden="true"></i> Pago protegido por GiroVolt</p>
             </form>
+        </section>
+
+        <aside class="pago-resumen" aria-labelledby="tituloResumen">
+            <h2 id="tituloResumen"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Resumen de tu pedido</h2>
+            <ul class="pago-resumen-lista" id="resumenLista"></ul>
+            <p class="pago-resumen-total">Total <strong id="resumenTotal">Q0.00</strong></p>
+        </aside>
+    </main>
+
+    <div class="padre" id="avisoCarritoVacio" hidden>
+        <div class="hijo">
+            <h1>No tienes ningún producto en tu carrito</h1>
+            <p>Agrega productos desde la sección de proyectos para poder continuar con tu compra.</p>
+            <a class="boton-finalizar" href="Proyecto.html#productos">Ver productos</a>
         </div>
     </div>
 
@@ -97,8 +138,32 @@
             currency: "GTQ"
         });
 
+        function carritoEstaVacio() {
+            try {
+                return obtenerCarrito().length === 0;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function revisarCarritoVacio() {
+            const vacio = carritoEstaVacio();
+            document.querySelector(".pasos-pago").hidden = vacio;
+            document.getElementById("panelDatos").hidden = vacio;
+            if (!vacio) dibujarResumen();
+            document.getElementById("avisoCarritoVacio").hidden = !vacio;
+            return vacio;
+        }
+
         function iniciarSesion(event) {
             event.preventDefault();
+
+            if (revisarCarritoVacio()) {
+                if (window.GiroVoltCarrito) {
+                    window.GiroVoltCarrito.avisar("No tienes ningún producto en tu carrito", "alerta");
+                }
+                return;
+            }
 
             const pan = document.getElementById("username").value.trim();
             const contrasena = document.getElementById("password").value;
@@ -154,8 +219,33 @@
             dibujarCarrito(carrito);
         }
 
+        function dibujarResumen() {
+            let carrito = [];
+            try {
+                carrito = obtenerCarrito();
+            } catch (error) {
+                return;
+            }
+
+            const lista = document.getElementById("resumenLista");
+            lista.replaceChildren();
+            carrito.forEach((producto) => {
+                const elemento = document.createElement("li");
+                const nombre = document.createElement("span");
+                nombre.textContent = `${producto.nombre} × ${producto.cantidad}`;
+                const subtotal = document.createElement("strong");
+                subtotal.textContent = formatoMoneda.format(producto.precio * producto.cantidad);
+                elemento.append(nombre, subtotal);
+                lista.appendChild(elemento);
+            });
+
+            const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
+            document.getElementById("resumenTotal").textContent = formatoMoneda.format(total);
+        }
+
         function cerrarCarrito() {
             document.getElementById("capaCompra").hidden = true;
+            revisarCarritoVacio();
         }
 
         function dibujarCarrito(carrito) {
@@ -165,7 +255,7 @@
             if (carrito.length === 0) {
                 const mensaje = document.createElement("li");
                 mensaje.className = "carrito-vacio";
-                mensaje.textContent = "No hay productos en el carrito.";
+                mensaje.textContent = "No tienes ningún producto en tu carrito.";
                 lista.appendChild(mensaje);
             }
 
@@ -199,6 +289,7 @@
                 if (carrito[indice].cantidad === 0) carrito.splice(indice, 1);
                 localStorage.setItem(claveCarrito, JSON.stringify(carrito));
                 dibujarCarrito(carrito);
+                if (window.GiroVoltCarrito) window.GiroVoltCarrito.actualizar();
             } catch (error) {
                 alert("No se pudo actualizar el carrito. Revisa el almacenamiento del navegador e inténtalo de nuevo.");
             }
@@ -211,6 +302,7 @@
 
                 const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
                 localStorage.setItem(claveCarrito, JSON.stringify([]));
+                if (window.GiroVoltCarrito) window.GiroVoltCarrito.actualizar();
                 document.getElementById("contenidoCarrito").hidden = true;
                 document.getElementById("resultadoCompra").hidden = false;
                 document.getElementById("totalComprado").textContent = formatoMoneda.format(total);
@@ -219,6 +311,8 @@
             }
         }
 
+        document.addEventListener("DOMContentLoaded", revisarCarritoVacio);
+        window.addEventListener("pageshow", revisarCarritoVacio);
         document.getElementById("btnFinalizar").addEventListener("click", finalizarCompra);
         document.getElementById("capaCompra").addEventListener("click", (evento) => {
             if (evento.target === evento.currentTarget) cerrarCarrito();
@@ -229,16 +323,34 @@
     </script>
 
     <div class="contacto pie-simple">
-        <div class="pie-marca">
-            <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" width="120" height="80">
-            <div class="pie-texto">
-                <p class="pie-nombre">GiroVolt</p>
-                <p class="pie-slogan">Moviendo el futuro sin contaminar el presente</p>
+        <div class="pie-contenido">
+            <div class="pie-marca">
+                <img src="imagenes/Solo logotipo.png" alt="Logo GiroVolt" width="120" height="80">
+                <div class="pie-texto">
+                    <p class="pie-nombre">GiroVolt</p>
+                    <p class="pie-slogan">Moviendo el futuro sin contaminar el presente</p>
+                </div>
+            </div>
+
+            <address class="pie-direccion">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span><strong>GiroVolt</strong>53 Calle C y 17 Avenida, Bodega 4, Zona 12, <br>Ciudad de Guatemala</span>
+            </address>
+
+            <div class="pie-redes">
+                <p class="pie-redes-titulo">Síguenos</p>
+                <div class="pie-redes-iconos">
+                    <a href="https://www.instagram.com/girovolt_gt/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram de GiroVolt"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@girovolt_gt" target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok de GiroVolt"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="carrito-nav.js"></script>
 </body>
 <script>
  window.difyChatbotConfig = {
@@ -267,6 +379,7 @@
  defer>
 </script>
 <script src="chatbot-mobile.js" defer></script>
+<script src="givi-globo.js" defer></script>
 <style>
   #dify-chatbot-bubble-button { background-color: #1C64F2 !important; }
 </style>
